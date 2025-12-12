@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import React from 'react';
+import FlatCards from './components/FlatCards';
+import ElevatedCards from './components/ElevatedCards';
+import FancyCards from './components/FancyCards';
+import ContactList from './components/ContactList';
 
 const App = () => {
-  const [counter, setCounter] = useState(0);
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ color: 'white', fontFamily: 'bold' }}>
-        Welcome to my new project
-      </Text>
-      <Text style={{ color: 'pink', fontFamily: 'italic' }}>{counter}</Text>
-      <Button title="Click Me" onPress={() => setCounter(counter + 1)}></Button>
-      <Button title="Reset" onPress={() => setCounter(0)}></Button>
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.container}>
+          <FlatCards />
+          <ElevatedCards />
+          <FancyCards />
+          <ContactList />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#4c4848ff',
+    height: '100%',
+  },
+});
 
 export default App;
